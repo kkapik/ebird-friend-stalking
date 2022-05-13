@@ -23,7 +23,7 @@ python3 friendobservation.py
 
 
  It will prompt you for the region you want to scan and for the date and you can choose the language in which the name of the birds will be display:
- ```python
+ ```
  Zone?
  SE                     #example of a zone
  Date? ((d)d/(m)m/yyyy)
