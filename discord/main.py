@@ -2,6 +2,7 @@
 
 import json, datetime
 import apicall as eb
+import discord_notify as dn
 
 api_key = 'XXXXXXXXXXXX' #Paste your eBirdApiToken here
 myfriends = ["NAME HERE"] #Put the name of your friends in here.
@@ -17,7 +18,7 @@ def main(loc,day):
     js_feed = json.loads(feed)
     checklists=[]
     for c in js_feed:
-        if c["userDisplayName"] in my_friends:
+        if c["userDisplayName"] in myfriends:
             checklists.append({'auteur':c["userDisplayName"],'listID':c["subID"]})
     if checklists == []:
         return "Pas d'observation pour aujourd'hui"
