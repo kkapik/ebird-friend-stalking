@@ -3,7 +3,7 @@
 Small Python code to check if my friends have seen some nice birds today.
 
 
-## How can I make it work for me?
+## How can you make it work?
 
 First you need to have a API key for eBird. It can be easily requested [here](https://ebird.org/api/keygen) by filling out the form.
 
@@ -25,17 +25,19 @@ python3 friendobservation.py
  It will prompt you for the region you want to scan and for the date and you can choose the language in which the name of the birds will be display:
  ```
  Zone?
- SE                     #example of a zone
+ SE                       #example of a zone
  Date? ((d)d/(m)m/yyyy)
- 12/5/2022              #example of a date
- Language?
- en                     #example of a language choice
+ 12/5/2022                #example of a date
+ Language? (default = en)
+ fr                       #example of a language choice
  ```
+Default date is today.
+
 
 After waiting few seconds you will get your result !!! :)
 
 
 ## What's next?
 
-* Group the all the list of one person in one output
-* default the date to today
+* Add some the count for species
+* Add locations of observation
