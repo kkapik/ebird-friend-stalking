@@ -29,6 +29,10 @@ Finally you will need to have to get a Webhook URL for in a channel on Discord.
 
 To get it: 'Edit Channel > Integrations > Webhooks'
 
+Then add your Webhook at the end of [discord/main.py](./main.py):
+```python
+notifier = dn.Notifier('WEBHOOK URL') #Add your webhook url here.
+```
 
 You can test your modifications at this point to check if everything is working correctly.
 
@@ -40,6 +44,10 @@ After waiting few seconds you will receive a mesasge on the channel !!! :)
 To get a daily recap of yesterday activity of your friends you can run the script as a cron job on a server.
 
 To add it in the cron job just run the [setup script](./setup.sh). *This may require sudo privileges*.
+
+```bash
+sudo ./setup.sh
+```
 
 The script will display the final crontab list.
 
