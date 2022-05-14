@@ -7,7 +7,13 @@ A version using Discord notification is available [here](./discord).
 
 ## How can you make it work?
 
-First you need to have a API key for eBird. It can be easily requested [here](https://ebird.org/api/keygen) by filling out the form.
+First install the required libraries:
+```bash
+pip3 install -r requirements.txt
+```
+
+Then you need to have a API key for eBird. It can be easily requested [here](https://ebird.org/api/keygen) by filling out the form.
+
 
 Once your have your key you need to place it in the python code. At this step you also add the name on eBird of your friends.
 The fields to modify are at the top of [main.py](./main.py):
