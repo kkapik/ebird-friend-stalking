@@ -1,6 +1,8 @@
 # eBird friend stalking
 
-Small Python code to check if my friends have seen some nice birds today.
+Python code to check if your friends have seen some nice birds.
+
+A version using Discord notification is available [here](./discord).
 
 
 ## How can you make it work?
