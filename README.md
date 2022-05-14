@@ -8,7 +8,7 @@ Small Python code to check if my friends have seen some nice birds today.
 First you need to have a API key for eBird. It can be easily requested [here](https://ebird.org/api/keygen) by filling out the form.
 
 Once your have your key you need to place it in the python code. At this step you also add the name on eBird of your friends.
-The fields to modify are on line 6 and 7:
+The fields to modify are at the top of [main.py](./main.py):
 
 ```python
 api_key = 'XXXXXXXXXXXX' #Paste your eBirdApiToken here
@@ -17,7 +17,7 @@ myfriends = ["NAME HERE"] #Put the name of your friends in here.
 
 Once you have done this you can run it in your terminal on Linux with the command:
 ```bash
-python3 friendobservation.py
+python3 main.py
 ```
  Or by any other way you like to run your python code.
 
