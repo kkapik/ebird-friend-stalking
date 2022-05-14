@@ -5,7 +5,6 @@ from ebird.api import  get_checklist, get_taxonomy
 
 
 def get_daily(api_key, loc_code, day):
-
     url = "https://api.ebird.org/v2/product/lists/"+ loc_code +'/'+day[2]+'/'+day[1]+'/'+day[0]+"?maxResults=200"
     payload={}
     headers = {'X-eBirdApiToken': api_key}
