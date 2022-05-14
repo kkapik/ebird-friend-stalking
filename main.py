@@ -18,7 +18,7 @@ def main(loc,day):
     checklists=[]
     print('\nChecing the checklist feed for the region ...')
     for c in js_feed:
-        if c["userDisplayName"] in my_friends:
+        if c["userDisplayName"] in myfriends:
             checklists.append({'auteur':c["userDisplayName"],'listID':c["subID"]})
     if checklists == []:
         print("No observation for your friends to day! :(")
