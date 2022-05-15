@@ -41,6 +41,8 @@ python3 main.py
  ```
 Default date is today.
 
+Note: the available languages and code can be found [here](https://support.ebird.org/en/support/solutions/articles/48000804865-bird-names-in-ebird) (*You may need to change the language of the support page to english to access this link*)
+
 
 After waiting few seconds you will get your result !!! :)
 
