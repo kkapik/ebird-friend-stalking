@@ -22,20 +22,25 @@ def main(loc,day):
             checklists.append({'auteur':c["userDisplayName"],'listID':c["subID"]})
     if checklists == []:
         return "Pas d'observation pour aujourd'hui"
-    result=[]
+
+    codes=[]
     for i in checklists:
-        result.append(eb.get_species(api_key, i, locale))
-    for j in result:
-        for l in result[result.index(j):]:
+        codes.append(eb.get_species(api_key, i, locale))
+
+    for j in codes:
+        for l in codes[codes.index(j):]:
             if j != l:
                 if j['auteur'] == l['auteur']:
                     j['speciesList'] = list(set(j['speciesList']+l['speciesList']))
-                    result.pop(result.index(l))
+                    codes.pop(codes.index(l))
+    SOTD=eb.speciesOTD(codes)
+    speciesdict=eb.code_dict(api_key,SOTD, locale)
+
     out = ''
-    for k in result:
+    for k in codes:
         out += k['auteur'] + ' have seen: '
         for l in k['speciesList']:
-            out += l + ', '
+            out += speciesdict[l] + ', '
         out = out[:-2]+ '.\n \n'
     return out
 

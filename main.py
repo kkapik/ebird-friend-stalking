@@ -10,38 +10,42 @@ def main(loc,day):
     dateL=[]
     if day == "":
         current_time = datetime.datetime.now()
-        dateL = [str(current_time.day)] + [str(current_time.month)] + [str(current_time.year)]
+        dateL = [str(current_time.day-1)] + [str(current_time.month)] + [str(current_time.year)]
     else:
         dateL = day.split('/')
     feed = (eb.get_daily(api_key, loc, dateL))
     js_feed = json.loads(feed)
     checklists=[]
-    print('\nChecing the checklist feed for the region ...')
     for c in js_feed:
         if c["userDisplayName"] in myfriends:
             checklists.append({'auteur':c["userDisplayName"],'listID':c["subID"]})
     if checklists == []:
-        print("No observation for your friends to day! :(")
-        return None
-    result=[]
-    print('Getting the species ...')
+        return "Pas d'observation pour aujourd'hui"
+
+    print("Checklists found ! \nScanning their content ...")
+    codes=[]
     for i in checklists:
-        result.append(eb.get_species(api_key, i, locale))
-    print('Preparing the result ...')
-    for j in result:
-        for l in result[result.index(j):]:
+        codes.append(eb.get_species(api_key, i, locale))
+
+    for j in codes:
+        for l in codes[codes.index(j):]:
             if j != l:
                 if j['auteur'] == l['auteur']:
                     j['speciesList'] = list(set(j['speciesList']+l['speciesList']))
-                    result.pop(result.index(l))
+                    codes.pop(codes.index(l))
+    SOTD=eb.speciesOTD(codes)
+    print('Searching locale names in '+ locale)
+    speciesdict=eb.code_dict(api_key,SOTD, locale)
+
+    print('Preparing the result ...')
     print('\n')
-    for k in result:
-        out= k['auteur'] + ' have seen: '
+    out = ''
+    for k in codes:
+        out += k['auteur'] + ' have seen: '
         for l in k['speciesList']:
-            out += l + ', '
-        out = out[:-2]+ '.\n'
-        print(out)
-    return None
+            out += speciesdict[l] + ', '
+        out = out[:-2]+ '.\n \n'
+    return out
 
 
 if __name__ == '__main__':
@@ -57,3 +61,4 @@ if __name__ == '__main__':
     if locale == "":
         locale = 'en'
     r = main(location, datum)
+    print(r)

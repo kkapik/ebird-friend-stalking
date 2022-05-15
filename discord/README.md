@@ -1,4 +1,4 @@
-# eBird friend stalking - Discord version
+# eBird friends stalking - Discord version
 
 **For normal version please check [here](..)**
 
