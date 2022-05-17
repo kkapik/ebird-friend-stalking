@@ -1,6 +1,6 @@
 # eBird friends stalking - Discord version
 
-**For normal version please check [here](github.com/kkapik/ebird-friend-stalking)**
+**For normal version please check [here](https://github.com/kkapik/ebird-friend-stalking)**
 
 This version has been created to be executed on a server in order to send Discord notifications every day as a recap of the day.
 
